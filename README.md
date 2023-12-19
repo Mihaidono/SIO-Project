@@ -63,9 +63,3 @@ Partea încorporată a proiectului implică programare bazată pe Arduino pentru
 
 3. **Colectare Date Senzori:**
    - Asigură-te că codul încorporat bazat pe Arduino este încărcat și configurat corect pentru a colecta datele senzorilor și a le expune către endpointurile backend definite.
-
-## Note
-
-- Asigură-te că toate componentele rulează și sunt configurate corect pentru a permite comunicarea fără probleme între frontend, backend și sistemele încorporate.
-
-Simte-te liber să extinzi acest fișier README cu instrucțiuni specifice pentru fiecare componentă și orice detalii suplimentare necesare pentru colaboratori sau utilizatori.
