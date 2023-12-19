@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="content">
+    <div class="content-header">
+      <div class="automated-care-container">
+        <mat-slide-toggle
+          class="automated_button"
+          [checked]="true"
+          (change)="toggleAutomatedCare()"
+        >
+          Automated Care
+        </mat-slide-toggle>
+      </div>
+      <div class="datetime_display">
+        <p>{{ currentlyDisplayedSensorData.datetime }}</p>
+      </div>
+    </div>
+    <h1 class="control-panel-text">Control Panel</h1>
+    <div class="info_display">
+      <div class="sub_display">
+        <h2 class="info_display_subcont_header">
+          {{ currentlyDisplayedSensorData.temperatureSensor }} &deg;C
+        </h2>
+        <p>Surrounding temperature</p>
+      </div>
+      <div class="sub_display">
+        <h2 class="info_display_subcont_header">
+          {{ currentlyDisplayedSensorData.humiditySensor }} %
+        </h2>
+        <p>Soil humidity</p>
+      </div>
+      <div class="sub_display">
+        <h2 class="info_display_subcont_header">
+          {{ currentlyDisplayedSensorData.brightnessSensor }} lux
+        </h2>
+        <p>Brightness</p>
+      </div>
+
+      <button
+        *ngIf="!automatedCareChecked"
+        mat-raised-button
+        (click)="waterPlant()"
+      >
+        Water plant
+      </button>
+    </div>
+  </div>
+</div>

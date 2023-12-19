@@ -1,0 +1,127 @@
+.container {
+  background-image: url("../../../assets/plant_background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Set the container to cover the entire viewport height */
+}
+
+.content {
+  height: 80%;
+  width: 80%;
+  background-color: #90ee90;
+  padding: 30px;
+  margin: 10px;
+  border-radius: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.automated-care-container {
+  margin-bottom: 20px; /* Adjust the margin as needed */
+  align-self: flex-start; /* Aligns the container to the start (left) */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.datetime_display {
+  font-size: 20px;
+  color: #964b00;
+}
+
+.content-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.control-panel-text {
+  font-size: 42px; /* Adjust the font size as needed */
+  font-weight: bold; /* Optional: Apply bold font */
+  margin: 20px; /* Remove default margin */
+  color: #964b00;
+  margin-top: auto;
+  margin-bottom: 20px;
+}
+
+.info_display {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sub_display {
+  background-color: #4ee44e;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 50px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+  p{
+    font-size: 18px;
+    color: #e1f5e1;
+    letter-spacing: 1.5px;
+  }
+}
+
+.info_display_subcont_header {
+  color: #964b00;
+  font-weight: bold;
+  font-size: 28px;
+}
+
+.mat-mdc-raised-button.mat-unthemed {
+  --mdc-protected-button-container-color: #a56b31;
+  --mdc-protected-button-label-text-color: #90ee90;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+  padding: 25px;
+  margin-top: auto;
+  margin-bottom: auto;
+  letter-spacing: 1.5px;
+}
+
+.mat-mdc-slide-toggle {
+  --mdc-switch-disabled-selected-handle-color: #964b00;
+  --mdc-switch-disabled-unselected-handle-color: #964b00;
+  --mdc-switch-disabled-selected-track-color: #964b00;
+  --mdc-switch-disabled-unselected-track-color: #964b00;
+  --mdc-switch-unselected-focus-state-layer-color: #964b00;
+  --mdc-switch-unselected-pressed-state-layer-color: #964b00;
+  --mdc-switch-unselected-hover-state-layer-color: #4ee44e;
+  --mdc-switch-unselected-focus-track-color: #4ee44e;
+  --mdc-switch-unselected-hover-track-color: #4ee44e;
+  --mdc-switch-unselected-pressed-track-color: #4ee44e;
+  --mdc-switch-unselected-track-color: #4ee44e;
+  --mdc-switch-unselected-focus-handle-color: #964b00;
+  --mdc-switch-unselected-hover-handle-color: #964b00;
+  --mdc-switch-unselected-pressed-handle-color: #964b00;
+  --mdc-switch-handle-surface-color: var(--mdc-theme-surface, #964b00);
+  --mdc-switch-unselected-handle-color: #964b00;
+  --mdc-switch-selected-icon-color: #964b00;
+  --mdc-switch-disabled-selected-icon-color: #964b00;
+  --mdc-switch-disabled-unselected-icon-color: #964b00;
+  --mdc-switch-unselected-icon-color: #964b00;
+}
+
+.mat-mdc-slide-toggle.mat-accent {
+  --mdc-switch-selected-focus-state-layer-color: #964b00;
+  --mdc-switch-selected-handle-color: #964b00;
+  --mdc-switch-selected-hover-state-layer-color: #964b00;
+  --mdc-switch-selected-pressed-state-layer-color: #964b00;
+  --mdc-switch-selected-focus-handle-color: #964b00;
+  --mdc-switch-selected-hover-handle-color: #964b00;
+  --mdc-switch-selected-pressed-handle-color: #964b00;
+  --mdc-switch-selected-focus-track-color: #964b00;
+  --mdc-switch-selected-hover-track-color: #964b00;
+  --mdc-switch-selected-pressed-track-color: #964b00;
+  --mdc-switch-selected-track-color: #964b00;
+}
