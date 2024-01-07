@@ -11,13 +11,13 @@ Acest proiect cuprinde componente pentru monitorizarea și controlul datelor de 
 
 ## Descrierea Proiectului
 
-Acest depozit conține codul pentru un sistem de monitorizare a mediului care colectează date de la diverse senzori, precum temperatură, luminozitate și eventual umiditate. Datele colectate sunt procesate, stocate și făcute accesibile prin API-uri pentru analize și control suplimentar.
+Acest proiect conține codul pentru un sistem de monitorizare a mediului care colectează date de la diverse senzori, precum temperatură, luminozitate și umiditate. Datele colectate sunt procesate, stocate și făcute accesibile prin API-uri pentru analize și control suplimentar.
 
 ### Componente
 
 #### Frontend (Angular)
 
-Frontend-ul Angular oferă o interfață de utilizator pentru interacțiunea cu sistemul. Comunică cu serverele backend pentru afișarea și gestionarea datelor de mediu colectate.
+Frontend-ul Angular oferă o interfață de utilizator pentru interacțiunea cu sistemul. Comunică cu serverele back-end pentru afișarea și gestionarea datelor de mediu colectate.
 
 #### Stocare Date Backend (Python)
 
@@ -25,11 +25,11 @@ Backend-ul Python este responsabil pentru stocarea și recuperarea datelor obți
 
 #### Endpointuri API Backend (Java Spring Boot)
 
-Backend-ul Java Spring Boot gestionează endpointurile API. Oferă interfețe pentru frontend pentru a interacționa cu datele stocate și pentru a controla funcționalitățile sistemului.
+Backend-ul Java Spring Boot gestionează endpointurile API. Oferă interfețe pentru front-end pentru a interacționa cu datele stocate și pentru a controla funcționalitățile sistemului.
 
 #### Colectare Date Senzori Încorporați (Arduino)
 
-Partea încorporată a proiectului implică programare bazată pe Arduino pentru citirea datelor de la senzorii de temperatură, luminozitate și umiditate. Datele colectate sunt apoi expuse serverelor backend prin endpointuri definite.
+Partea încorporată a proiectului implică programare bazată pe Arduino pentru citirea datelor de la senzorii de temperatură, luminozitate și umiditate. Datele colectate sunt apoi expuse serverelor back-end prin end-point-uri definite.
 
 ## Instrucțiuni de Configurare
 
@@ -50,16 +50,16 @@ Partea încorporată a proiectului implică programare bazată pe Arduino pentru
 
 ### Colectare Date Senzori Încorporați (Arduino)
 
-- Încarcă codul Arduino (ino) furnizat în hardware-ul respectiv (de exemplu, ESP32).
+- Încarcă codul Arduino (UNO) furnizat în hardware-ul respectiv (de exemplu pe plăcuța ESP32).
 - Configurează pinii și conexiunile pentru senzori conform codului furnizat.
 
 ## Utilizare
 
 1. **Accesarea Frontend-ului:**
-   - Accesează URL-ul frontend-ului sau local host după ce ai pornit serverul Angular pentru a interacționa cu interfața de utilizator.
+   - Accesează URL-ul frontend-ului sau local-host după ce ai pornit serverul Angular pentru a interacționa cu interfața de utilizator.
 
 2. **Endpointuri API:**
-   - Folosește endpointurile API furnizate de backend-ul Java Spring Boot pentru a prelua și gestiona datele. Consultă documentația API pentru detalii despre endpointurile disponibile și funcționalitățile lor.
+   - Folosește endpointurile API furnizate de back-end-ul Java Spring Boot pentru a prelua și gestiona datele. Consultă documentația API pentru detaliile despre end-pointurile disponibile și funcționalitățile lor.
 
 3. **Colectare Date Senzori:**
-   - Asigură-te că codul încorporat bazat pe Arduino este încărcat și configurat corect pentru a colecta datele senzorilor și a le expune către endpointurile backend definite.
+   - Asigură-te că se încarcă codul hardware bazat pe Arduino și este configurat corect pentru a colecta datele senzorilor pentru a le expune către end-point-urile back-end definite.
