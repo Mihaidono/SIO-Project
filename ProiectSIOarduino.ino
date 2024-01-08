@@ -16,8 +16,10 @@ const int temperatureSensorPin = 26;    // Digital pin 26 for DS18B20 temperatur
 const int sensorBrightnessAnalog = 34;  // Analog pin 34 for ALSPT19 brightness sensor
 
 // Define the motor control pins
-const int motorPin = 25;    // Digital pin 25 for motor control
-const int motorSpeed = 80;  // Adjust the speed as needed (0 to 255)
+const int motorPin = 25;     // Digital pin 25 for motor control
+const int motorSpeed = 255;  // Adjust the speed as needed (0 to 255)
+const int dcMotorIn3 = 33;
+const int dcMotorIn4 = 32;
 
 OneWire oneWire(temperatureSensorPin);
 DallasTemperature sensors(&oneWire);
@@ -52,6 +54,13 @@ void setup() {
   sensors.begin();
   // Set the motor control pin as OUTPUT
   pinMode(motorPin, OUTPUT);
+
+  pinMode(dcMotorIn3, OUTPUT);
+  pinMode(dcMotorIn4, OUTPUT);
+
+  digitalWrite(dcMotorIn3, HIGH);
+  digitalWrite(dcMotorIn4, LOW);
+
   // Set the initial motor speed
   analogWrite(motorPin, 0);
 
