@@ -2,17 +2,24 @@ import time
 
 import mysql.connector
 import requests
+import yaml
 
 # Endpoint URL
 endpoint_url = "http://192.168.149.170:80/sensors"  # Replace this with your actual endpoint URL
 
-# MySQL connection details
-host = "aws.connect.psdb.cloud"
-port = 3306
-database = "test"
-user = "o0i2apl0ppyimrwknzi1"
-passwordDB = "pscale_pw_g2bnOnYuULaHdFZRwWpmyBQ4qeXqG2mgiH42DhYL1kd"
-table_name = "sensors_data"
+with open('config.yaml', 'r') as file:
+    config = yaml.safe_load(file)
+
+# Access MySQL connection details
+mysql_config = config.get('mysql', {})
+
+host = mysql_config.get('host')
+port = mysql_config.get('port')
+database = mysql_config.get('database')
+user = mysql_config.get('user')
+password = mysql_config.get('password')
+table_name = mysql_config.get('table_name')
+
 while True:
     # Fetching data from the endpoint
     response = requests.get(endpoint_url)
@@ -27,7 +34,7 @@ while True:
                 port=port,
                 database=database,
                 user=user,
-                password=passwordDB
+                password=password
             )
             cursor = conn.cursor()
 
