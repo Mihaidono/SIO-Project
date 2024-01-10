@@ -55,7 +55,14 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   waterPlant() {
-    this.sensorService.activateMotor();
+    this.sensorService.activateMotor().subscribe(
+      (response: any) => {
+        console.log('Motor activated:', response);
+      },
+      (error) => {
+        console.error('Error occurred:', error);
+      }
+    );
   }
 
   toggleAutomatedCare() {

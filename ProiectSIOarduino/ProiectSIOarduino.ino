@@ -21,6 +21,7 @@ const int motorSpeed = 255;  // Adjust the speed as needed (0 to 255)
 const int dcMotorIn3 = 33;
 const int dcMotorIn4 = 32;
 
+bool externalAction = false;
 OneWire oneWire(temperatureSensorPin);
 DallasTemperature sensors(&oneWire);
 AsyncWebServer server(80);
@@ -85,11 +86,20 @@ void setup() {
   });
 
   server.on("/activate_motor", HTTP_GET, [](AsyncWebServerRequest* request) {
-    digitalWrite(motorPin, motorSpeed);  // Activate the motor
-    delay(2000);                         // Motor activation duration (2 seconds in this case)
-    digitalWrite(motorPin, 0);           // Deactivate the motor after delay
+    externalAction = true;
+    // Move the motor for 2 seconds
+    analogWrite(motorPin, motorSpeed);
+
+    // Delay for 2 seconds to keep the motor running
+    delay(2000);
+
+    // Stop the motor by setting the PWM to 0
+    analogWrite(motorPin, 0);
+    externalAction = false;
+    // Send a response indicating that the motor has been activated
     request->send(200, "text/plain", "Motor activated for 2 seconds");
   });
+
 
   server.begin();
 }
@@ -106,13 +116,16 @@ void loop() {
   int brightnessSensorValue = analogRead(sensorBrightnessAnalog);
   // Check the sensor values and control the motor speed through PWM
   float moisturePercentage = (1.0 - (moistureSensorValue / 4095.0)) * 200.0;
-  if (moisturePercentage < 40) {
-    // Increase the motor speed
-    analogWrite(motorPin, motorSpeed);
-  } else {
-    // Stop the motor by setting the PWM to 0
-    analogWrite(motorPin, 0);
+  if (!externalAction) {
+    if (moisturePercentage < 40) {
+      // Increase the motor speed
+      analogWrite(motorPin, motorSpeed);
+    } else {
+      // Stop the motor by setting the PWM to 0
+      analogWrite(motorPin, 0);
+    }
   }
+
 
   // Print the sensor values to the Serial Monitor
   Serial.print("Analog Moisture Sensor Percentage Value: ");
