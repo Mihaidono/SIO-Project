@@ -1,7 +1,7 @@
 .container {
-  background-image: url("../../../assets/plant_background.jpg");
   background-position: center;
   background-repeat: no-repeat;
+  background-size: cover; /* Make the background image cover the entire container */
   display: flex;
   justify-content: center;
   align-items: center;

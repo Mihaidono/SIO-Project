@@ -22,6 +22,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor(private sensorService: SensorService) {}
 
   ngOnInit() {
+    const plantBackgroundImg = '../../../assets/plant_background.jpg';
+    const containerElement = document.querySelector('.container') as HTMLDivElement;
+
     this.intervalSubscription = interval(1000).subscribe(() => {
       this.fetchSensorData();
     });
@@ -35,6 +38,29 @@ export class HomeComponent implements OnInit, OnDestroy {
         console.error('Error fetching sensor data: ', error);
       }
     );
+
+    if (containerElement) {
+      this.checkImage(plantBackgroundImg)
+        .then(() => {
+          // Image exists, set it as the background for the .container element
+          containerElement.style.backgroundImage = `url("${plantBackgroundImg}")`;
+        })
+        .catch(() => {
+          // Image doesn't exist, handle accordingly (e.g., set a default background)
+          console.error('Image not found:', plantBackgroundImg);
+        });
+    } else {
+      console.error('.container element not found');
+    }
+  }
+
+  private checkImage(url: string): Promise<void> {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => resolve();
+      img.onerror = () => reject();
+      img.src = url;
+    });
   }
 
   ngOnDestroy() {
