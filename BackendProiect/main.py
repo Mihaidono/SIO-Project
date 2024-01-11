@@ -5,7 +5,7 @@ import requests
 import yaml
 
 # Endpoint URL
-endpoint_url = "http://192.168.149.170:80/sensors"  # Replace this with your actual endpoint URL
+endpoint_url = "http://192.168.108.170:80/sensors"  # Replace this with your actual endpoint URL
 
 with open('config.yaml', 'r') as file:
     config = yaml.safe_load(file)

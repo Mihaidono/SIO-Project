@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class SensorService {
-  readonly backendUrl = 'http://localhost:8081'; // sent through the broker
-  readonly espStaticIP = 'http://192.168.149.170'; // directly sent to esp
+  readonly backendUrl = 'http://localhost:8080'; // sent through the broker
+  readonly espStaticIP = 'http://192.168.108.170:80'; // directly sent to esp
   constructor(public httpClient: HttpClient) {}
 
   getSensorData(): Observable<SensorData> {
